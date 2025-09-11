@@ -1,20 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Encrypt / Decrypt</title>
+<meta charset="UTF-8">
+  <title>Encrypt / Decrypt by Mustafaa</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      overflow: hidden;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center; /* keep it centered */
+      display: block;
+      z-index: -1;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      word-wrap: break-word;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+      white-space: pre-wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #3498db;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    #result {
+          margin-top: 15px;
+          font-weight: bold;
+          white-space: pre-wrap;   /* keeps line breaks */
+          word-wrap: break-word;   /* breaks long words */
+          overflow-wrap: break-word;
+          text-align: left;
+          max-height: 300px;
+          overflow-y: auto;        /* scroll if too long */
+          background: rgba(255,255,255,0.1);
+          padding: 10px;
+          border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Encryption / Decryption App</h2>
+  <!-- Background Video (you can also use a .gif with <img>) -->
+  <video autoplay muted loop id="bg-video">
+    <source src="background.mp4" type="video/mp4">
+    <!-- If using GIF: <img src="your-gif.gif" alt="Background"> -->
+  </video>
 
-  <input id="password" placeholder="Enter password"><br><br>
-  <textarea id="message" placeholder="Enter message"></textarea><br><br>
-
-  <button onclick="encrypt()">Encrypt</button>
-  <button onclick="decrypt()">Decrypt</button>
-
-  <h3>Result:</h3>
-  <p id="result"></p>
+  <div class="container">
+    <h2>Encryption / Decryption App</h2>
+    <h4>Made by Mustafaa Rehman</h4>
+    <input id="password" placeholder="Enter password"><br>
+    <textarea id="message" placeholder="Enter message"></textarea><br>
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+    <h3>Result:</h3>
+    <p id="result"></p>
+  </div>
 
   <script>
     async function encrypt() {
